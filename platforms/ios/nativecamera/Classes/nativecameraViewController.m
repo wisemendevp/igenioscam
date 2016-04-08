@@ -14,7 +14,7 @@
         self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         self.picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
         self.picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
-        self.picker.showsCameraControls = NO;
+        self.picker.showsCameraControls = YES;
         
         // Make us the delegate for the UIImagePickerController
         self.picker.delegate = self;
@@ -45,7 +45,8 @@
     // Get a file path to save the JPEG
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* documentsDirectory = [paths objectAtIndex:0];
-    NSString* filename = @"test.jpg";
+    NSString  timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
+    NSString* filename = timestamp;
     NSString* imagePath = [documentsDirectory stringByAppendingPathComponent:filename];
     
     // Get the image data (blocking; around 1 second)
