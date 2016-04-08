@@ -46,7 +46,7 @@
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* documentsDirectory = [paths objectAtIndex:0];
     NSString  timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
-    NSString* filename = timestamp;
+    NSString* filename = @"timestamp.jpeg";
     NSString* imagePath = [documentsDirectory stringByAppendingPathComponent:filename];
     
     // Get the image data (blocking; around 1 second)
